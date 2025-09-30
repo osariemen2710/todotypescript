@@ -84,7 +84,7 @@ const TodoList: React.FC = () => {
     mutationFn: async (id) => {
       await axios.delete(`${API_URL}/${id}`);
     },
-    onSuccess: (data, id) => {
+    onSuccess: (_data, id) => {
       queryClient.setQueryData<Todo[]>(['todos'], (oldTodos) =>
         oldTodos?.filter((todo) => todo.id !== id)
       );
